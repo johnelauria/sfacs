@@ -1,6 +1,5 @@
 class CreateCashiers < ActiveRecord::Migration
   def change
-    drop_table :cashiers
     create_table :cashiers do |t|
       t.string :username
       t.string :crypted_password
