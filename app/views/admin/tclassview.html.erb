@@ -1,0 +1,55 @@
+<style>body{background:white;}</style>
+
+FOR: <%=@teacher.fullname%><BR>
+SUBJECT: <%=@subject.description%>
+<table border="1">
+  <tr>
+    <th>student number</th>
+    <th>Name</th>
+    
+    <th>first quarter</th>
+    <th>second quarter</th>
+    <th>third quarter</th>
+    <th>fourth quarter</th>
+    
+    <th> </th>
+   
+   
+   
+  </tr>
+
+<% @masterlist.each do |list| %>
+
+    <td style="text-align:center"><%= list.student.studinfo.studnum %></td>
+    <td style="text-align:center"><%= list.student.studinfo.fullname %></td>
+    
+    <%@grade=Grade.find(list.grade_id) %>
+    <td style="text-align:center"><div class="field">
+    <%=@grade.first_quarter%>
+    
+  </div></td>
+    <td style="text-align:center"><div class="field">
+   
+    <%=@grade.second_quarter%>
+  </div></td>
+    <td style="text-align:center"> <div class="field">
+    
+    <%=@grade.third_quarter%>
+  </div></td>
+    <td style="text-align:center"><div class="field">
+    
+    <%=@grade.fourth_quarter%>  
+  </div></td>
+    <td style="text-align:center"> 
+    
+    
+ 
+  </td>
+    
+    
+    </tr>
+ 
+ 
+  
+  <% end %>
+   </table>

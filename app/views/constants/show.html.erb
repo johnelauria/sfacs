@@ -1,0 +1,17 @@
+<div id="header" style="position:relative"><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona
+</div>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @constant.name %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @constant.value %>
+</p>
+
+
+<%= link_to 'Edit', edit_constant_path(@constant) %> |
+<%= link_to 'Back', constants_path %>

@@ -1,0 +1,2 @@
+module CashierSessionsHelper
+end

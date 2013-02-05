@@ -1,0 +1,53 @@
+
+<style> body{background:white;
+}
+</style>
+<div id="re1">
+<div id="re2"><%= image_tag "sfac.png", :size=>"86x86"%></div>
+
+<div id="re3"><h2>Saint Francis Of Assisi School, Ltd.</h2>
+</div>
+
+<div id="re3">Admiral Village, Talon, Las Pinas City 
+ </div>
+<div id="re3">873-8383</div><br>
+
+<br>
+<br>
+<br>
+<br>
+<h1 style="text-align:center">ASSESTMENT</h1><br>
+<div id="re5">Student Name: <%=@student.studinfo.fullname%></div><div id="re5">Student Number: <%=@student.studinfo.studnum%></div><div id="re5">Level: <%=@student.studinfo.level%></div><div id="re5">School Year: <%=@syc.value%></div>
+<table>
+  <tr>
+    <th>subject code</th>
+    <th>Description</th>
+    <th>Days</th>
+    <th>time</th>
+    
+   
+  </tr>
+<%@sum = 0%>
+<% @view.each do |assestmentlists| %>
+  
+  <tr>
+      <td><%= assestmentlists.subject.subjcode %></td>
+    <td><%= assestmentlists.subject.description %></td>  
+    <td><%= assestmentlists.subject.days %></td>
+    <td><%= assestmentlists.subject.time1 %></td>
+    
+    </tr>
+    <%@sum = @sum+assestmentlists.subject.amount %>
+ 
+  <% end %>
+   </table>
+   <div id="re5" style="float:right">Total Subject Amount = <%=@sum%></div><br>
+   <%@m.each do |f|%>
+ <div id="re6"><%=f.name%></div>
+ <div id="re6"><%=f.amount%></div>
+
+<%end%>
+ <br><div id="re5" style="float:right">Total Miscellaneous Amount = <%m=Miscellaneou.sum("amount")%><%=m%></div><br><div id="re5" style="float:right">Total  Amount = <%=@sum+m%></div>
+   <br>+
+   </div>
+  

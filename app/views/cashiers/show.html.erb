@@ -1,0 +1,28 @@
+<div id="header" style="position:relative"><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1>
+</div>
+<p id="notice"><%= notice %></p>
+
+<table class="bordered" style="width:400px; text-align:left" >
+  <tr><th>Username:</th>
+  <td><%= @cashier.username %></td></tr> 
+  <tr><th>Fname:</th>
+  <td><%= @cashier.fname %></td></tr> 
+  <tr><th>Mname:</th>
+  <td><%= @cashier.mname %></td></tr> 
+  <tr><th>Lnamne:</th>
+  <td><%= @cashier.lname %></td></tr> 
+  <tr><th>Suffix:</th>
+  <td><%= @cashier.suffix %></td></tr> 
+  <tr><th>Address:</th>
+  <td><%= @cashier.address %></td></tr>   
+  <tr><th>Email:</th>
+  <td><%= @cashier.email %></td></tr> 
+  <tr><th>Telnum:</th>
+  <td><%= @cashier.telnum %></td></tr> 
+  <tr><th>Celnum:</th>
+  <td><%= @cashier.celnum %></td></tr>  
+</table>
+
+
+<%= link_to 'Edit', edit_cashier_path(@cashier) %> |
+<%= link_to 'Back', cashiers_path %>

@@ -1,0 +1,29 @@
+<div id="header" style="position:relative"><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+<h1>Listing constants</h1>
+<br><br>
+<table class="bordered" style="width:300px">
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @constants.each do |constant| %>
+  <tr>
+    <td><%= constant.name %></td>
+    <td><%= constant.value %></td>
+    <td><%= link_to 'Show', constant %></td>
+    <td><%= link_to 'Edit', edit_constant_path(constant) %></td>
+    <td><%= link_to 'Destroy', constant, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+<br />
+
+<%= link_to 'New Constant', new_constant_path %>

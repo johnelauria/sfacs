@@ -1,0 +1,98 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+  activerecord:
+    attributes:
+      studinfo:
+        suffix: "Suffix"
+        fname: "First Name"
+        mname: "Middle Name"
+        lname: "Last Name"
+        level: "Level"
+        email: "Email"
+        address: "Address"
+    attributes:
+       cashier:
+        suffix: "Suffix"
+        fname: "First Name"
+        mname: "Middle Name"
+        lname: "Last Name"
+        level: "Level"
+        email: "Email"
+        address: "Address"
+        telnum: "Telephone Number"
+        celnum: "Cellphone Number"
+    attributes:
+       teacher:
+        suffix: "Suffix"
+        fname: "First Name"
+        mname: "Middle Name"
+        lname: "Last Name"
+        level: "Level"
+        email: "Email"
+        address: "Address"
+        telnum: "Telephone Number"
+        celnum: "Cellphone Number"
+    errors:
+      models:
+        studinfo:
+          attributes:
+            suffix:
+              blank: "is required"
+            fname:
+              blank: "is required"
+            mname:
+              blank: "is required"
+            lname:
+              blank: "is required"
+            level:
+              blank: "is required"
+            email:
+              blank: "is required"
+              taken: "is already taken"
+            address:
+              blank: "is required"
+        cashier:
+          attributes:
+            suffix:
+              blank: "is required"
+            fname:
+              blank: "is required"
+            mname:
+              blank: "is required"
+            lname:
+              blank: "is required"
+            level:
+              blank: "is required"
+            email:
+              blank: "is required"
+              taken: "is already taken"
+            address:
+              blank: "is required"
+            celnum:
+              not_a_number: "should only contain numbers"
+            telnum:
+              not_a_number: "should only contain numbers"
+        teacher:
+          attributes:
+            suffix:
+              blank: "is required"
+            fname:
+              blank: "is required"
+            mname:
+              blank: "is required"
+            lname:
+              blank: "is required"
+            level:
+              blank: "is required"
+            email:
+              blank: "is required"
+              taken: "is already taken"
+            address:
+              blank: "is required"
+            celnum:
+              not_a_number: "should only contain numbers"
+            telnum:
+              not_a_number: "should only contain numbers"

@@ -1,0 +1,9 @@
+<h1>Grades#CATCHER2</h1>
+<p>Find me in app/views/grades/home.html.erb</p>
+<%= form_tag("viewlist", :method =>"post") do %>
+<%=hidden_field_tag(:dugas, params[:dugas])%>
+<%= submit_tag("Search") %>
+<%=params[:dugas]%>
+<% end %>
+
+<%=params[:grade][:first_quarter]%>

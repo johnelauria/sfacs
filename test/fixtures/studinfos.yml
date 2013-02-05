@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fname: MyString
+  minitial: MyString
+  lname: MyString
+  secret_question: MyString
+  secret_answer: MyString
+
+two:
+  fname: MyString
+  minitial: MyString
+  lname: MyString
+  secret_question: MyString
+  secret_answer: MyString

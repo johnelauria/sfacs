@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  student_id: 1
+  sy: MyString
+  subjectamount: 1
+  miscamount: 1
+  paidamount: 1
+
+two:
+  student_id: 1
+  sy: MyString
+  subjectamount: 1
+  miscamount: 1
+  paidamount: 1

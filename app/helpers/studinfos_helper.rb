@@ -1,0 +1,2 @@
+module StudinfosHelper
+end

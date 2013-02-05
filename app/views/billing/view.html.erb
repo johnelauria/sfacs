@@ -1,0 +1,54 @@
+<div id="header" style="position:relative"><div id="nav" style="float:right; margin-top:10px; margin-right:10px">
+        <% if current_student %>
+        <%= link_to "Edit Profile", edit_student_path(current_student.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_teacher %>
+        <%= link_to "Edit Profile", edit_teacher_path(current_teacher.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_cashier %>
+        <%= link_to "Edit Profile", edit_cashier_path(current_cashier.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+        <% end %>
+        <% end %>
+       
+        <% end %>
+    </div><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+<style>body{background:white;}</style>
+<table style=" width: 801px; border:1px black solid;" >
+
+   <% @transactions.each do |transaction| %> 
+  
+  <tr>
+    <th>Transaction id: </th><td ><%= transaction.id %></td>
+    <th>School Year: </th><td><%= transaction.sy %></td>
+
+    <th>Total Amount: </th><td><% @total=transaction.subjectamount+transaction.miscamount %><%=@total%></td>
+    <th>Paid Amount: </th> <td><%= transaction.paidamount %></td>  
+    </tr>    
+    <tr><th>Description: </th><th>Subject code: </th></tr>
+    <%@subjects=transaction.masterlists%>
+    <% @subjects.each do |subject|%>  
+    <tr>
+    <td ><%= subject.subject.description %></td>
+    <td><%= subject.subject.subjcode %></td>
+    </tr>
+    <%end%>
+    <%@payments=transaction.payments%>
+    <tr><th>Reciept id: </th><th>School Year: </th><th>Amount: </th><th>Date: </th><th>Cashier id: </th></tr><tr>
+    <% @payments.each do |payment|%>
+  <tr>
+    <th>Reciept id: </th><td ><%= payment.id %></td>
+    <th>School Year: </th><td><%= payment.sy %></td>
+    <th>Date: </th><td><%= payment.created_at %></td>
+    <th>Cashier id: </th><td><%= payment.cashier_id %></td>
+    </tr>
+    <%end%>
+    <%end%>
+   </table>
+

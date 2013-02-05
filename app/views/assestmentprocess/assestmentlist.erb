@@ -1,0 +1,91 @@
+<div id="header" style="position:relative"><div id="nav" style="float:right; margin-top:10px; margin-right:10px">
+        <% if current_student %>
+        <%= link_to "Edit Profile", edit_student_path(current_student.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_teacher %>
+        <%= link_to "Edit Profile", edit_teacher_path(current_teacher.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_cashier %>
+        <%= link_to "Edit Profile", edit_cashier_path(current_cashier.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+        <% end %>
+        <% end %>
+               
+        <%= link_to "Register", new_user_path%> | 
+        <%= link_to "Login", :login %>
+        <% end %>
+    </div><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+<h1 align="center">Assessment List</h1>
+<p align="center">in this page you can view all of your Assessment list</p>
+<h1><p id="notice"><%= notice %></p></h1>
+<% if @student.assestmentlists.count !=0 %>
+
+
+<%= form_tag("profileassestmentlist", :method =>"post") do %>
+<%= collection_select(:assestmentlist, :sy, @master, :sy, :sy, options ={:prompt => "-Select School Year"}) %>
+<%= submit_tag("Search",:class=>"button") %>
+<% end %>
+<table class="bordered">
+<tr><th>SCHOOL YEAR:<%=@block.upcase%></th></tr>
+</table>
+<table class="bordered">
+  <tr>
+    <th>Subject code</th>
+    <th>Description</th>
+    <th>Days</th>
+    <th>Time1</th>
+    <th>Time2</th>
+    <th>Room</th>
+    <th>Block</th>
+    <th>Level</th>
+   
+  </tr>
+
+<% @sy.each do |subject| %>
+  <tr>
+    <td><%= subject.subject.subjcode %></td>
+    <td><%= subject.subject.description %></td>
+    <td><%= subject.subject.days %></td>
+    <td><%= subject.subject.time1 %></td>
+    <td><%= subject.subject.time2 %></td>
+    <td><%= subject.subject.room %></td>
+        <td><%= subject.subject.block %></td>
+    <td><%= subject.subject.level %></td>
+  
+
+    </tr>
+ 
+  <% end %>
+   </table><%else%>
+   No Assestment List to Display
+<%end%>
+  
+   
+  
+
+<table>
+<tr><td>
+
+<%= form_tag("profilegrades", :method =>"post") do %>
+<%= hidden_field_tag(:dugas, 'gago')%>
+<%= submit_tag("Step 2: view Enrolled Subjects",:class=>"button",:style=>"float:left") %>
+</td>
+<%end%>
+
+<td align="right">
+<%= form_tag("selection", :method =>"post") do %>
+<%= hidden_field_tag(:dugas, 'DUGAS')%>
+<input id="subject_block" name="subject[block]" type="hidden" value="a"/>
+<%= submit_tag("Step 4: Subject Selection",:class=>"button") %>
+</td></tr>
+</table>
+<% end %>
+
+
+

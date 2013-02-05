@@ -1,0 +1,75 @@
+<%= form_for(@subject) do |f| %>
+  <% if @subject.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subject.errors.count, "error") %> prohibited this subject from being saved:</h2>
+
+      <ul>
+      <% @subject.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table style="width:370px; text-align:left;">
+  <div class="field">
+    <tr><th><%= f.label :subjcode %><br /></th>
+    <td><%= f.text_field :subjcode %></td></tr>
+  </div>
+
+  <div class="field">
+    <tr><th><%= f.label :description %><br /></th>
+    <td><%= f.text_field :description %></td></tr>
+  </div>
+
+  <div class="field">
+    <tr><th>Days<br /></th>
+    <td><%= f.radio_button(:days, "tth") %><%= f.label(:days_tth, "TTH") %><%= f.radio_button(:days, "mwf") %><%= f.label(:days_mwf, "MWF") %></td></tr>
+  </div>
+
+  <div class="field">
+    <tr><th><%= f.label :time1 %><br /></th>
+    <td><%= f.text_field :time1 %></td></tr>
+  </div>
+
+  <div class="field">
+    <tr><th><%= f.label :time2 %><br /></th>
+    <td><%= f.text_field :time2 %></td></tr>
+  </div>
+
+  <div class="field">
+    <tr><th><%= f.label :room %><br /></th>
+    <td><%= f.text_field :room %></td></tr>
+  </div>
+
+  <div class="field">
+    <tr><th><%= f.label :amount %><br /></th>
+    <td><%= f.text_field :amount %></td></tr>
+  </div>
+
+  <div class="field">
+    <tr><th><%= f.label :block %><br /></th>
+    <td><%= f.radio_button(:block, "a") %><%= f.label(:block_tth, "A") %><%= f.radio_button(:block, "b") %><%= f.label(:block_b, "B") %></td></tr>
+  </div>
+
+   <div class="field">
+    <tr><th><%= f.label :level %><br /></th>
+    <td><%= f.text_field :level %></td></tr>
+  </div>
+
+  <div class="field">
+    <tr><th>Type<br /></th>
+    <td><%= f.radio_button(:type, "summer") %><%= f.label(:type_summer, "Summer") %><%= f.radio_button(:type, "regular") %><%= f.label(:type_regular, "Regular") %></td></tr>
+  </div>
+
+  
+  
+  <div class="field">
+    <tr><th><%= f.label :teacher %><br /></th>    
+    <td><%= collection_select(:subject, :teacher_id, Teacher.all, :id, :fullname, options ={:prompt => "-Select a teacher"}) %></td></tr>
+  </div>
+  </table>
+  <div class="actions">
+  <br>
+    <%= f.submit :class=>"button", :style=>"margin-left:150px" %>
+  </div>
+<% end %>

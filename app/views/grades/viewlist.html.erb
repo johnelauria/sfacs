@@ -1,0 +1,184 @@
+<div id="header" style="position:relative"><div id="nav" style="float:right; margin-top:10px; margin-right:10px">
+        <% if current_student %>
+        <%= link_to "Edit Profile", edit_student_path(current_student.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_teacher %>
+        <%= link_to "Edit Profile", edit_teacher_path(current_teacher.id)%>
+        <%= link_to "Logout", :teacherlogout%>
+        <% else %>
+
+        <% if current_cashier %>
+        <%= link_to "Edit Profile", edit_cashier_path(current_cashier.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+        <% end %>
+        <% end %>
+         
+        <% end %>
+    </div><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+
+<center><h1>Class List</h1></center>
+<p id="notice"><%= notice %></p><br><br>
+
+<table class="bordered">
+  <tr>
+    <th>student number</th>
+    <th>Name</th>
+    
+    <th>first quarter</th>
+    <th>second quarter</th>
+    <th>third quarter</th>
+    <th>fourth quarter</th>
+    
+    <th> </th>
+   
+   
+   
+  </tr>
+
+<% @masterlist.each do |list| %>
+<%= form_tag("catcher2", :method =>"post",:style=>"text-align:center") do %>
+  <tr>
+    <td style="text-align:center"><%= list.student.studinfo.studnum %></td>
+    <td style="text-align:center"><%= list.student.studinfo.fullname %></td>
+    
+    <%@grade=Grade.find(list.grade_id) %>
+    <td style="text-align:center"><div class="field">
+    
+    quiz:<%= text_field(:grade,:first_quarter_quiz,:size=>"2", :maxlimit=>"2" ) %>
+  </div><div class="field">
+    
+    seatwork:<%= text_field(:grade,:first_quarter_seatwork,:size=>"2", :maxlimit=>"2" ) %>
+  </div><div class="field">
+    
+    project:<%= text_field(:grade,:first_quarter_project,:size=>"2", :maxlimit=>"2" ) %>
+  </div><div class="field">
+    
+    assignment:<%= text_field(:grade,:first_quarter_assignment,:size=>"2", :maxlimit=>"2" ) %>
+    <div class="field">
+    
+    exam:<%= text_field(:grade,:first_quarter_exam,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+   <div class="field">
+    
+    attendance:<%= text_field(:grade,:first_quarter_attendance,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+   <div class="field">
+    
+    recitation:<%= text_field(:grade,:first_quarter_recitation,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+  <div class="field">
+    
+    Total:<%= text_field(:grade,:first_quarter,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+  </div></td>
+    <td style="text-align:center"><div class="field">
+    
+    quiz:<%= text_field(:grade,:second_quarter_quiz,:size=>"2", :maxlimit=>"2" ) %>
+  </div><div class="field">
+    
+    seatwork:<%= text_field(:grade,:second_quarter_seatwork,:size=>"2", :maxlimit=>"2" ) %>
+  </div><div class="field">
+    
+    project:<%= text_field(:grade,:second_quarter_project,:size=>"2", :maxlimit=>"2" ) %>
+  </div><div class="field">
+    
+    assignment:<%= text_field(:grade,:second_quarter_assignment,:size=>"2", :maxlimit=>"2" ) %>
+    <div class="field">
+    
+    exam:<%= text_field(:grade,:second_quarter_exam,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+   <div class="field">
+    
+    attendance:<%= text_field(:grade,:second_quarter_attendance,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+   <div class="field">
+    
+    recitation:<%= text_field(:grade,:second_quarter_recitation,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+  <div class="field">
+    
+    Total:<%= text_field(:grade,:second_quarter,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+  </div></td>
+    <td style="text-align:center"><div class="field">
+    
+    quiz:<%= text_field(:grade,:third_quarter_quiz,:size=>"2", :maxlimit=>"2" ) %>
+  </div><div class="field">
+    
+    seatwork:<%= text_field(:grade,:third_quarter_seatwork,:size=>"2", :maxlimit=>"2" ) %>
+  </div><div class="field">
+    
+    project:<%= text_field(:grade,:third_quarter_project,:size=>"2", :maxlimit=>"2" ) %>
+  </div><div class="field">
+    
+    assignment:<%= text_field(:grade,:third_quarter_assignment,:size=>"2", :maxlimit=>"2" ) %>
+    <div class="field">
+    
+    exam:<%= text_field(:grade,:third_quarter_exam,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+   <div class="field">
+    
+    attendance:<%= text_field(:grade,:third_quarter_attendance,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+   <div class="field">
+    
+    recitation:<%= text_field(:grade,:third_quarter_recitation,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+  <div class="field">
+    
+    Total:<%= text_field(:grade,:third_quarter,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+  </div></td>
+    <td style="text-align:center"><div class="field">
+    
+    quiz:<%= text_field(:grade,:fourth_quarter_quiz,:size=>"2", :maxlimit=>"2" ) %>
+  </div><div class="field">
+    
+    seatwork:<%= text_field(:grade,:fourth_quarter_seatwork,:size=>"2", :maxlimit=>"2" ) %>
+  </div><div class="field">
+    
+    project:<%= text_field(:grade,:fourth_quarter_project,:size=>"2", :maxlimit=>"2" ) %>
+  </div><div class="field">
+    
+    assignment:<%= text_field(:grade,:fourth_quarter_assignment,:size=>"2", :maxlimit=>"2" ) %>
+    <div class="field">
+    
+    exam:<%= text_field(:grade,:fourth_quarter_exam,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+   <div class="field">
+    
+    attendance:<%= text_field(:grade,:fourth_quarter_attendance,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+   <div class="field">
+    
+    recitation:<%= text_field(:grade,:fourth_quarter_recitation,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+  <div class="field">
+    
+    Total:<%= text_field(:grade,:fourth_quarter,:size=>"2", :maxlimit=>"2" ) %>
+  </div>
+  </div></td>
+    <td style="text-align:center"> 
+    
+    <%= hidden_field_tag(:id, list.id)%>
+    <%= hidden_field_tag(:dugas, @subject.id)%>
+  <%= submit_tag("EDIT GRADE") %> 
+  <% end %>
+  </td>
+    
+    
+    </tr>
+ 
+  <% end %>
+   </table>
+   <br>
+   <br>
+   <%= form_tag(:grades, :method =>"post") do %>
+  
+  <%= submit_tag("Back To Home", :class => "button",:style=>"float:left") %> 
+  <% end %>
+   

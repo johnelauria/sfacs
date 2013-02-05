@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  first_quarter: 1
+  second_quarter: 1
+  third_quarter: 1
+  fourth_quarter: 1
+
+two:
+  first_quarter: 1
+  second_quarter: 1
+  third_quarter: 1
+  fourth_quarter: 1

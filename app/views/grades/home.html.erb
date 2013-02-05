@@ -1,0 +1,66 @@
+<div id="header" style="position:relative"><div id="nav" style="float:right; margin-top:10px; margin-right:10px">
+        <% if current_student %>
+        <%= link_to "Edit Profile", edit_student_path(current_student.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_teacher %>
+        <%= link_to "Edit Profile", edit_teacher_path(current_teacher.id)%>
+        <%= link_to "Logout", :teacherlogout%>
+        <% else %>
+
+        <% if current_cashier %>
+        <%= link_to "Edit Profile", edit_cashier_path(current_cashier.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+        <% end %>
+        <% end %>
+               
+       
+        <% end %>
+    </div><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+
+<center><h1>Home</h1></center
+<br><br>
+<center><p id="notice"><%= notice %></p></center>
+
+
+<table class="bordered" style="text-align:center; " align="center">
+  <tr>
+    
+    <th>subject code</th>
+    <th>Description</th>
+    <th>Block</th>
+    <th>Level</th>
+    <th>Days</th>
+    <th>Time1</th>
+    <th>Time2</th>
+    <th>Grading System</th>
+    <th>Class List </th>
+   
+  </tr>
+
+<% @subjects.each do |subject| %>
+  <tr>
+
+    <td><%= subject.subjcode %></td>
+    <td><%= subject.description %></td>
+    <td><%= subject.block %></td>
+    <td><%= subject.level %></td>
+    <td><%= subject.days %></td>
+    <td><%= subject.time1 %></td>
+    <td><%= subject.time2 %></td>
+     <td><%= form_tag("grades/gradingsystem", :method =>"post") do %>
+    <%= hidden_field_tag(:dugas, subject.id)%>
+    <%= hidden_field_tag(:duga, "no")%>
+    <%= submit_tag("Manage", :class => "button") %> 
+    <% end %></td>
+    <td><%= form_tag("grades/viewlist", :method =>"post") do %>
+	<%= hidden_field_tag(:dugas, subject.id)%>
+	<%= submit_tag("View", :class => "button") %> 
+	<% end %></td>
+    </tr>
+ 
+  <% end %>
+   </table>

@@ -1,0 +1,69 @@
+<div id="header" style="position:relative"><div id="nav" style="float:right; margin-top:10px; margin-right:10px">
+        <% if current_student %>
+        <%= link_to "Edit Profile", edit_student_path(current_student.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_teacher %>
+        <%= link_to "Edit Profile", edit_teacher_path(current_teacher.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_cashier %>
+        <%= link_to "Edit Profile", edit_cashier_path(current_cashier.id)%>
+        <%= link_to "Logout", :clogout%>
+        <% else %>
+        <% end %>
+        <% end %>
+               
+       
+        <% end %>
+    </div><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+<center><h1>Home</h1></center>
+
+<center><p id="notice"><%= notice %></p></center>
+<div align="center">
+<table class="bordered" style="width:600px; float:left; margin-left:20px;">
+<th colspan="3"><h3>FOR ENROLLMENT</h3></th>
+<tr><td><%= form_tag("billing/viewassestment", :method =>"post") do %>
+<%= label_tag(:studid, "Input Student Number: ") %></td>
+<td><%= text_field_tag(:studid) %></td>
+<%= hidden_field_tag(:dugas, "id") %></td>
+<br><br>
+<tr><th colspan="3" style="height: 30px; text-align:right;"><%= submit_tag("Search", :class => "button",:style=>"margin-right:100px") %></td></tr>
+<% end %></th></tr>
+<tr><td><%= form_tag("billing/viewassestment", :method =>"post") do %>
+<%= label_tag(:studfname, "Input Student First Name: ") %></td>
+<td colspan="2"><%= text_field_tag(:studfname) %></td></tr>
+<tr><td><%= label_tag(:studminitial, "Input Student Middle Initial: ") %></td>
+<td colspan="2"><%= text_field_tag(:studminitial) %></td></tr>
+<tr><td><%= label_tag(:studlname, "Input Student Last Name: ") %></td>
+<td colspan="2"><%= text_field_tag(:studlname) %></td></tr>
+<tr><th colspan="3" style="height: 30px; text-align:right;"><%= hidden_field_tag(:dugas, "name") %>
+<%= submit_tag("Search", :class => "button",:style=>"margin-right:100px") %></th></tr>
+</table>
+
+<% end %>
+
+<table class="bordered" style="width:600px; float:right; margin-right:20px">
+<tr><th colspan="3"><h3>FOR ADDITONAL TUITION FEE PAYMENT</h3></th></tr>
+<td><%= form_tag("billing/paymentcatcher", :method =>"post") do %>
+<%= label_tag(:studid, "Input Student ID: ") %></td>
+<td><%= text_field_tag(:studid) %></td>
+<%= hidden_field_tag(:dugas, "id") %>
+</tr>
+<tr><th colspan="3" style="height: 30px; text-align:right;"><%= submit_tag("Search", :class => "button",:style=>"margin-right:100px") %></th></tr>
+<% end %>
+<tr><td><%= form_tag("billing/paymentcatcher", :method =>"post") do %>
+<%= label_tag(:studfname, "Input Student First Name: ") %></td>
+<td colspan="2"><%= text_field_tag(:studfname) %></td></tr>
+<tr><td><%= label_tag(:studminitial, "Input Student Middle Initial: ") %></td>
+<td colspan="2"><%= text_field_tag(:studminitial) %></td></tr>
+<tr><td><%= label_tag(:studlname, "Input Student Last Name: ") %></td>
+<td colspan="2"><%= text_field_tag(:studlname) %></td></tr>
+<tr><th colspan="3" style="height: 30px; text-align:right;"><%= hidden_field_tag(:dugas, "name") %>
+<%= submit_tag("Search", :class => "button",:style=>"margin-right:100px") %></th></tr>
+<% end %>
+</table>
+</div>

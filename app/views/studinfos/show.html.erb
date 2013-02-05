@@ -1,0 +1,39 @@
+<div id="header" style="position:relative"><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+</div>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Fname:</b>
+  <%= @studinfo.fname %>
+</p>
+
+<p>
+  <b>Minitial:</b>
+  <%= @studinfo.mname %>
+</p>
+
+<p>
+  <b>Lname:</b>
+  <%= @studinfo.lname %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @studinfo.email %>
+</p>
+<p>
+  <b>Address:</b> 
+  <%= @studinfo.address %>
+</p>
+<p>
+  <b>level:</b> 
+  <%= @studinfo.level %>
+</p>
+
+
+
+
+
+<%= link_to 'Edit', edit_studinfo_path(@studinfo) %> |
+<%= link_to 'Back', studinfos_path %>

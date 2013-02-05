@@ -1,0 +1,69 @@
+<%= form_for(@teacher) do |f| %>
+  <% if @teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+
+      <ul>
+      <% @teacher.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %>
+    </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :staffnum %><br />
+    <%= f.number_field :staffnum %>
+  </div>
+  <div class="field">
+    <%= f.label :fname %><br />
+    <%= f.text_area :fname,:rows =>1 %>
+  </div>
+  <div class="field">
+    <%= f.label :minitial %><br />
+    <%= f.text_area :minitial,:rows =>1 %>
+  </div>
+  <div class="field">
+    <%= f.label :lname %><br />
+    <%= f.text_area :lname,:rows =>1 %>
+  </div>
+  <div class="field">
+    <%= f.radio_button(:suffix, "Jr") %>
+<%= f.label(:suffix_Jr, "Junior") %>
+<%= f.radio_button(:suffix, "Sr") %>
+<%= f.label(:suffix_Sr, "Senior") %>
+<%= f.radio_button(:suffix, " ") %>
+<%= f.label(:suffix_, "None") %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_area :address, :size => "40" %>
+  </div>
+  <div class="field">
+    <%= f.label :telnum %><br />
+    <%= f.number_field :telnum %>
+  </div>
+  <div class="field">
+    <%= f.label :cellnum %><br />
+    <%= f.number_field :cellnum %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

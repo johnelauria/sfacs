@@ -1,0 +1,50 @@
+<div id="header" style="position:relative"><div id="nav" style="float:right; margin-top:10px; margin-right:10px">
+        <% if current_student %>
+        <%= link_to "Edit Profile", edit_student_path(current_student.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_teacher %>
+        <%= link_to "Edit Profile", edit_teacher_path(current_teacher.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_cashier %>
+        <%= link_to "Edit Profile", edit_cashier_path(current_cashier.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+        <% end %>
+        <% end %>
+               
+        <%= link_to "Register", new_user_path%> | 
+        <%= link_to "Login", :login %>
+        <% end %>
+    </div><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+<h1>Assestmentprocess#view</h1>
+<p>Find me in app/views/assestmentprocess/view.html.erb</p>
+
+<table class="bordered">
+  <tr>
+    <th>payment id</th>
+    <th>Amount</th>
+    <th>Date</th>
+  </tr>
+<% @transactions.each do |payment| %>
+	
+  <tr>
+    <% trans=Transaction.find(payment.id) %>
+    <% trans.payments.each do |p| %>
+    <td><%= p.id %></td>
+    <td> <%=p.amount%>
+    <td> <%=p.created_at%>
+
+    <%end%>
+    
+    </tr>
+    
+ 
+  <% end %>
+   </table>
+
+   
+   

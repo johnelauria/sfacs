@@ -1,0 +1,24 @@
+<h1>Grades#viewlist</h1>
+<p>Find me in app/views/grades/home.html.erb</p>
+<%= form_tag("catcher", :method =>"post") do  %>
+  
+  <div class="field">
+    <%= label_tag( :first_quarter) %><br />
+    <%= text_field_tag :first_quarter %>
+  </div>
+   <div class="field">
+    <%= label_tag :second_quarter %><br />
+    <%=text_field_tag :second_quarter %>
+  </div>
+   <div class="field">
+    <%= label_tag :third_quarter %><br />
+    <%= text_field_tag :third_quarter %>
+  </div>
+   <div class="field">
+    <%= label_tag :fourth_quarter %><br />
+    <%= text_field_tag :fourth_quarter %>
+  </div>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>

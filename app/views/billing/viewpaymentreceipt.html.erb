@@ -1,0 +1,66 @@
+<div id="header" style="position:relative"><div id="nav" style="float:right; margin-top:10px; margin-right:10px">
+        <% if current_student %>
+        <%= link_to "Edit Profile", edit_student_path(current_student.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_teacher %>
+        <%= link_to "Edit Profile", edit_teacher_path(current_teacher.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_cashier %>
+        <%= link_to "Edit Profile", edit_cashier_path(current_cashier.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+        <% end %>
+        <% end %>
+               
+      
+        <% end %>
+    </div><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+   <div id="r1" style="background-color:white">
+
+<div id="r2" style="background-color:white"><%= image_tag "sfac.png", :size=>"65x65"%></div>
+
+<div id="r3" style="background-color:white">Saint Francis Of Assisi School, Ltd.
+</div>
+
+<div id="r3" style="background-color:white">Admiral Village, Talon, Las Pinas City 
+<div id="r4" style="background-color:white">Student Number: <%=@transaction.student.studinfo.studnum%></div> </div>
+<div id="r3" style="background-color:white">873-8383<div id="r4">Receipt Number: <%=@payment.id%></div></div>
+<div id="r3" style="background-color:white; ">NON-VAT REG TIN: 000-814-396-000
+<div id="r4" style="background-color:white">Date Issued: <%=Date.today%></div></div>
+<div id="r7" style="background-color:white; border-top:1px black solid; ">School Year: <%c=Constant.first%><%=c.value%></div>
+<div id="r5" style="background-color:white; border-top:1px black solid;">Recieved By: <%=@transaction.student.studinfo.fullname%></div>
+<div id="r7" style="background-color:white">Statement Of Account</div>
+<div id="r5" style="background-color:white">Level: <%=@transaction.student.studinfo.level%></div>
+<div id="r7" style="background-color:white">&nbsp</div>
+<div id="r5" style="background-color:white">&nbsp</div>
+<div id="r7" style="background-color:white">Subject Total:<%=@transaction.subjectamount%></div>
+<div id="r5" style="background-color:white">The Sum Of : </div>
+<div id="r7" style="background-color:white">Miscellaneous: <%=@transaction.miscamount%></div>
+<div id="r5" style="background-color:white">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 9000</div>
+<div id="r7" style="background-color:white">Total Amount: <%=@transaction.subjectamount+@transaction.miscamount%></div>
+<div id="r5" style="background-color:white">&nbsp</div>
+<div id="r7" style="background-color:white">This Payment: <%=@payment.amount%></div>
+<div id="r5" style="background-color:white">In Payment Of:</div>
+<div id="r7" style="background-color:white">Balance:<%=(@transaction.subjectamount+@transaction.miscamount)-@transaction.paidamount%></div>
+<div id="r5" style="background-color:white">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  Tuition and fees</div>
+<div id="r7" style="background-color:white">&nbsp</div>
+<div id="r5" style="background-color:white">&nbsp</div>
+<div id="r7" style="background-color:white; border-top:1px black solid; border-bottom:1px black solid;">Cashier Number:<%cash= Cashier.find(@payment.cashier_id)%><%=cash.id%></div>
+<div id="r5" style="background-color:white; border-top:1px black solid; border-bottom:1px black solid;">Cashier Name: <%=cash.fullname%></div>
+
+
+
+   </div><br>
+   <%= form_tag(billing_printreceipt_path, :method =>"post",:target => '_blank') do %>
+<%= hidden_field_tag(:pay, @payment.id)%>
+<%= hidden_field_tag(:transaction, @transaction.id)%>
+<%= submit_tag("Print",:class=>"button") %>
+<% end %>
+<%= form_tag(:home, :method =>"post") do %>
+<%= submit_tag("BACK TO HOME",:class=>"button") %>
+<% end %>

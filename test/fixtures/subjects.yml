@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  schdcode: MyString
+  subjcode: MyString
+  days: MyText
+  time1: 1
+  time2: 1
+  room: 1
+  amount: 1
+  block: MyString
+  tname: MyString
+  staffnum: 1
+
+two:
+  schdcode: MyString
+  subjcode: MyString
+  days: MyText
+  time1: 1
+  time2: 1
+  room: 1
+  amount: 1
+  block: MyString
+  tname: MyString
+  staffnum: 1

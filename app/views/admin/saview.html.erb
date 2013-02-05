@@ -1,0 +1,17 @@
+<style>body{background:white;}</style>
+ASSESTMENT LIST FOR <%=@subject.description%>
+
+<table style="width:600px">
+  <tr>
+    <th>Name</th>
+      
+  </tr>
+
+<% @subjectss.each do |list| %>
+<tr>
+    <td style="text-align:center"><%= list.studinfo.fullname %></td>
+   
+            
+    </tr> 
+  <% end %>
+   </table>

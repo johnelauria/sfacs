@@ -1,0 +1,32 @@
+<style>body{background:white;}</style>
+<%=params[:gau]%>
+<%=@student%>
+<table class=" width: 500px; border:1px black solid;">
+  <tr>
+    <th>Subject code</th>
+    <th>Description</th>
+    <th>Days</th>
+    <th>Time1</th>
+    <th>Time2</th>
+    <th>Room</th>
+    <th>Block</th>
+    <th>Level</th>
+   
+  </tr>
+
+<% @ass.each do |subject| %>
+  <tr>
+    <td><%= subject.subject.subjcode %></td>
+    <td><%= subject.subject.description %></td>
+    <td><%= subject.subject.days %></td>
+    <td><%= subject.subject.time1 %></td>
+    <td><%= subject.subject.time2 %></td>
+    <td><%= subject.subject.room %></td>
+        <td><%= subject.subject.block %></td>
+    <td><%= subject.subject.level %></td>
+  
+
+    </tr>
+ 
+  <% end %>
+   </table>

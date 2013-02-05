@@ -1,0 +1,60 @@
+<div id="header" style="position:relative"><div id="nav" style="float:right; margin-top:10px; margin-right:10px">
+        <% if current_student %>
+        <%= link_to "Edit Profile", edit_student_path(current_student.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_teacher %>
+        <%= link_to "Edit Profile", edit_teacher_path(current_teacher.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_cashier %>
+        <%= link_to "Edit Profile", edit_cashier_path(current_cashier.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+        <% end %>
+        <% end %>
+               
+        
+        <% end %>
+    </div><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+<h1>Billing#enrollmentcatcher</h1>
+<br><br>
+<table>
+  <tr>
+    <th>subject id</th>
+    <th>Subject transaction id</th>
+    <th>Subject student id</th>
+    <th>Subject subject id</th>
+
+    <th>Subject subject code</th>
+    <th>Subject block</th>
+    <th>Subject level</th>
+    <th>Subject amount</th>
+   
+  </tr>
+
+<% @to.each do |masterlist| %>
+	
+  <tr>
+    <td><%= masterlist.id %></td>
+      <td><%= masterlist.transaction_id %></td>
+      <td><%= masterlist.student_id %></td>
+    <td><%= masterlist.subject_id %></td>
+    <td><%= masterlist.subject.subjcode %></td>
+    <td><%= masterlist.subject.block %></td>
+    <td><%= masterlist.subject.level %></td>
+    <td><%= masterlist.subject.amount %></td> 
+    
+    </tr>
+    
+ 
+  <% end %>
+   </table>
+
+   <%= form_tag("viewregform", :method =>"post",:target => '_blank') do %>
+<%= hidden_field_tag(:stud, @transfer)%>
+<%= submit_tag("search") %>
+<% end %>

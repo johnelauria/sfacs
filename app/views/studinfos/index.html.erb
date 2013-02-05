@@ -1,0 +1,40 @@
+<div id="header" style="position:relative"><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1>
+</div>
+<h1>Listing studinfos</h1>
+<br><br>
+<table class="bordered">
+  <tr>
+    <th>Fname</th>
+    <th>Mname</th>
+    <th>Lname</th>
+    <th>Student number</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>level</th>
+    <th>Suffix</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @studinfos.each do |studinfo| %>
+  <tr>
+    <td><%= studinfo.fname %></td>
+    <td><%= studinfo.mname %></td>
+    <td><%= studinfo.lname %></td>
+    <td><%= studinfo.studnum %></td>
+    <td><%= studinfo.email %></td>
+    <td><%= studinfo.address %></td>
+    <td><%= studinfo.level %></td>
+    <td><%= studinfo.suffix %></td>
+    
+    <td><%= link_to 'Show', studinfo %></td>
+    <td><%= link_to 'Edit', edit_studinfo_path(studinfo) %></td>
+    <td><%= link_to 'Destroy', studinfo, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Studinfo', new_studinfo_path %>

@@ -1,0 +1,15 @@
+<div id="header" style="position:relative"><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+</div>
+
+<h1>Registration</h1>
+<p>Find me in app/views/registration/catcher.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+Answer your secret question
+<%= form_tag("register", :method =>"post") do %>
+<strong><%= label_tag(:answer, @student.secret_question+"? ") %></strong>
+<%= text_field_tag(:answer) %>
+<%= hidden_field_tag(:id,@student.studnum) %>
+<%= submit_tag("Submit") %>
+<% end %><br><br>

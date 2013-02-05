@@ -1,0 +1,25 @@
+<h1>Listing administrator_sessions</h1>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Password</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @administrator_sessions.each do |administrator_session| %>
+  <tr>
+    <td><%= administrator_session.username %></td>
+    <td><%= administrator_session.password %></td>
+    <td><%= link_to 'Show', administrator_session %></td>
+    <td><%= link_to 'Edit', edit_administrator_session_path(administrator_session) %></td>
+    <td><%= link_to 'Destroy', administrator_session, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Administrator session', new_administrator_session_path %>

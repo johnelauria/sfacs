@@ -1,0 +1,35 @@
+<div id="header" style="position:relative"><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+</div>
+
+<h1>Registration</h1>
+<br><br>
+<p id="notice"><%= notice %></p>
+
+<%= form_tag("roadblock", :method =>"post") do %>
+<%= label_tag(:studnum, "Input Student Number: ") %>
+<%= text_field_tag(:studnum) %><br>
+<%= label_tag(:email, "Input Email") %>
+<%= text_field_tag(:email) %>
+<%= submit_tag("Submit") %>
+<% end %><br><br>
+
+<!--
+<form action="/users" id="signup_form">
+      <fieldset>
+        <legend>Sign up</legend>
+        <div class="clearfix">
+          <label for="email_field">Email</label>
+          <div class="input">
+            <input data-validation="validate_email" id="email_field" type="text" name="user[email]" value="" placeholder="Email">
+          </div>
+        </div>
+
+        <div class="clearfix">
+          <label for="first_name_field">First Name</label>
+          <div class="input">
+            <input data-validation="required validate_min_length length4" id="first_name_field" type="text" name="user[first_name]" value="" placeholder="First name">
+          </div>
+        </div>
+
+!-->

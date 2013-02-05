@@ -1,0 +1,67 @@
+<%= form_for(@cashier) do |f| %>
+  <% if @cashier.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cashier.errors.count, "error") %> prohibited this cashier from being saved:</h2>
+
+      <ul>
+      <% @cashier.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table style="width:400px; text-align:left;">
+  <div class="field">
+    <tr><th><%= f.label :username %><br /></th>
+    <td><%= f.text_field :username %></td></tr>
+  </div>
+  <div class="field">
+    <tr><th><%= f.label :password %><br /></th>
+    <td><%= f.password_field :password %></td></tr>
+  </div>
+  <div class="field">
+      <tr><th><%= f.label :password_confirmation %><br /></th>
+      <td><%= f.password_field :password_confirmation %></td></tr>
+    </div>
+  <div class="field">
+  <tr><th><%= f.label :fname %><br /></th>
+  <td><%= f.text_field :fname %><br /></td></tr>
+  </div>
+  <div class="field">
+  <tr><th><%= f.label :mname %><br /></th>
+  <td><%= f.text_field :mname %><br /></td></tr>
+  </div>
+  <div class="field">
+  <tr><th><%= f.label :lname %><br /></th>
+  <td><%= f.text_field :lname %><br /></td></tr>
+  </div>
+  <div class="field">
+    <%= f.radio_button(:suffix, "Jr") %>
+<%= f.label(:suffix_Jr, "Junior") %>
+<%= f.radio_button(:suffix, "Sr") %>
+<%= f.label(:suffix_Sr, "Senior") %>
+<%= f.radio_button(:suffix, " ") %>
+<%= f.label(:suffix_, "None") %>
+  </div>
+  <div class="field">
+  <tr><th><%= f.label :address %><br /></th>
+  <td><%= f.text_area :address, :size => "40" %><br /></td></tr>
+  </div>
+  <div class="field">
+  <tr><th><%= f.label :email %><br /></th>
+  <td><%= f.text_field :email %><br /></td></tr>
+  </div>
+  <div class="field">
+  <tr><th><%= f.label :telnum %><br /></th>
+  <td><%= f.text_field :telnum %><br /></td></tr>
+  </div>
+  <div class="field">
+  <tr><th><%= f.label :celnum %><br /></th>
+  <td><%= f.text_field :celnum %><br /></td></tr>
+  </div>
+  
+  </table>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

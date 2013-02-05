@@ -1,0 +1,38 @@
+<style>body{background:white;}</style><table  style=" width: 20%">
+  <tr>
+    <th>Description</th>
+    
+    <th>first quarter</th>
+   <th>second quarter</th>
+   <th>third quarter</th>
+   <th>fourth quarter</th>
+   <th>Final Grade</th>
+   <th>Remarks</th>
+
+  </tr>
+
+<% @list.each do |subject| %>
+  <tr>
+  <td><%= subject.subject.description %></td>
+    
+    <td><%= subject.grade.first_quarter %></td>
+    <td><%= subject.grade.second_quarter %></td>
+    <td><%= subject.grade.third_quarter %></td>
+    <td><%= subject.grade.fourth_quarter %></td>
+    <% grade=(subject.grade.first_quarter+subject.grade.second_quarter+subject.grade.third_quarter+subject.grade.fourth_quarter)/4%>
+    <td><%=grade%></td>
+    <%if grade < 75 %>
+      <% if grade != 0 %>
+        <% @remarks="failed"%>    
+      <% else %>
+      <% @remarks ="NA"%>
+      <%end%>
+      <%else%> 
+      <%@remarks="passed"%>
+
+      <%end %>
+    <td><%=@remarks%></td>
+    </tr>
+ 
+  <% end %>
+   </table>

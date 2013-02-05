@@ -1,0 +1,40 @@
+<div id="header" style="position:relative"><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+</div>
+<p id="notice"><%= notice %></p>
+<table class="bordered" style="width:400px; text-align:left;">
+<tr><th>Username:</th>
+<td><%= @teacher.username %></td></tr>
+
+  <tr><th><b>Password:</b></th>
+  <td><%= @teacher.password %></td>
+
+
+  <tr><th><b>Email:</b></th>
+  <td><%= @teacher.email %></td>
+
+  <tr><th><b>Staffnum:</b></th>
+  <td><%= @teacher.staffnum %></td>
+
+  <tr><th><b>Fname:</b></th>
+  <td><%= @teacher.fname %></td></tr>
+
+  <tr><th><b>Minitial:</b></th>
+  <td><%= @teacher.minitial %></td>
+
+  <tr><th><b>Lname:</b></th>
+  <td><%= @teacher.lname %></td></tr>
+
+  <tr><th><b>Address:</b></th>
+  <td><%= @teacher.address %></td>
+
+  <tr><th><b>Telnum:</b></th>
+  <td><%= @teacher.telnum %></td></tr>
+
+  <tr><th><b>Cellnum:</b></th>
+  <td><%= @teacher.cellnum %></td>
+  </table>
+
+
+<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+<%= link_to 'Back', teachers_path %>

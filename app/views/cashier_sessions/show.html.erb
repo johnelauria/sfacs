@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Username:</b>
+  <%= @cashier_session.username %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @cashier_session.password %>
+</p>
+
+
+<%= link_to 'Edit', edit_cashier_session_path(@cashier_session) %> |
+<%= link_to 'Back', cashier_sessions_path %>

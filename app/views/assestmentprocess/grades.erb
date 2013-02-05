@@ -1,0 +1,155 @@
+<div id="header" style="position:relative"><div id="nav" style="float:right; margin-top:10px; margin-right:10px">
+        <% if current_student %>
+        <%= link_to "Edit Profile", edit_student_path(current_student.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_teacher %>
+        <%= link_to "Edit Profile", edit_teacher_path(current_teacher.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_cashier %>
+        <%= link_to "Edit Profile", edit_cashier_path(current_cashier.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+        <% end %>
+        <% end %>
+               
+        <%= link_to "Register", new_user_path%> | 
+        <%= link_to "Login", :login %>
+        <% end %>
+    </div><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+
+
+<h1 style="color:black"><center>Subject And Grades</center></h1>
+<p align="center">in this page you can view all of your enrolled subjects</p>
+<h1><p id="notice"><%= notice %></p></h1>
+<div align="left">
+<%= form_tag("profilegrades", :method =>"post") do %>
+<%= collection_select(:masterlist, :sy, @sy, :sy, :sy, options ={:prompt => "-Select School Year"}) %>
+<%= submit_tag("Search", :class => "button") %>
+</div>
+<% end %>
+
+
+<% if @student.masterlists.count !=0 %>
+
+<table class="bordered" style=" width:400px; float:left">
+  <tr>
+    <th>Description</th>    
+    <th>first quarter</th>
+   <th>second quarter</th>
+   <th>third quarter</th>
+   <th>fourth quarter</th>
+   <th>Final Grade</th>
+   <th>Remarks</th>
+
+  </tr>
+<% @list.each do |subject| %>
+  <tr>
+  <td><%= subject.subject.description %></td>
+    
+    <td><%= subject.grade.first_quarter %></td>
+    <td><%= subject.grade.second_quarter %></td>
+    <td><%= subject.grade.third_quarter %></td>
+    <td><%= subject.grade.fourth_quarter %></td>
+    <% grade=(subject.grade.first_quarter+subject.grade.second_quarter+subject.grade.third_quarter+subject.grade.fourth_quarter)/4%>
+    <td><%=grade%></td>
+    <%if grade < 75 %>
+      <% if grade != 0 %>
+        <% @remarks="failed"%>    
+      <% else %>
+      <% @remarks ="NA"%>
+      <%end%>
+      <%else%> 
+      <%@remarks="passed"%>
+
+      <%end %>
+    <td><%=@remarks%></td>
+    </tr>
+ 
+  <% end %>
+   </table>
+     
+  <table class="bordered" style=" width:500px; float:right;">
+  <tr>
+    <th>Time</th>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+   
+
+  </tr>
+<% mae=@list.first%>
+
+<% @list.each do |subject| %>
+  <tr>
+    <% mike=subject.subject.days %>
+    <td><%= subject.subject.time1%>-<%= subject.subject.time2%></td>
+    <% if mike.include?("m") %>
+
+   <td><%= subject.subject.subjcode%></td>
+   <% else %>
+   <td>No Class</td>
+
+    <%end %>
+    <% if mike.include?("t") %>
+
+   <td><%= subject.subject.subjcode %></td>
+   <% else %>
+   <td>No Class</td>
+
+    <%end %>
+     <% if mike.include?("w") %>
+
+   <td><%= subject.subject.subjcode%></td>
+   <% else %>
+   <td>No Class</td>
+
+    <%end %>
+    <% if mike.include?("h") %>
+
+   <td><%= subject.subject.subjcode %></td>
+   <% else %>
+   <td>No Class</td>
+
+    <%end %>
+     <% if mike.include?("f") %>
+
+   <td><%= subject.subject.subjcode %></td>
+   <% else %>
+   <td>No Class</td>
+
+    <%end %>
+
+
+    
+
+    <% %>
+  
+   
+ 
+  <% end %>
+   </table>
+   <%else%>
+   No Subjects To Display
+   <%end%>
+  
+   
+<table>
+<tr><td align="left">
+<%= form_tag("profile", :method =>"post") do %>
+<%= submit_tag("Step 1: View Transactions", :class => "button") %>  
+<%end%>
+</td>
+<td align="right">
+<%= form_tag("profileassestmentlist", :method =>"post") do %>
+<%= submit_tag("Step 3: View Assesed Subjects", :class => "button") %>
+<%= hidden_field_tag(:dugas,"gago")%>
+</td></tr></table>
+<% end %>
+

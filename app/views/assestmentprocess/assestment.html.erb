@@ -1,0 +1,34 @@
+<div id="header" style="position:relative"><div id="nav" style="float:right; margin-top:10px; margin-right:10px">
+        <% if current_student %>
+        <%= link_to "Edit Profile", edit_student_path(current_student.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_teacher %>
+        <%= link_to "Edit Profile", edit_teacher_path(current_teacher.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_cashier %>
+        <%= link_to "Edit Profile", edit_cashier_path(current_cashier.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+        <% end %>
+        <% end %>
+               
+        <%= link_to "Register", new_user_path%> | 
+        <%= link_to "Login", :login %>
+        <% end %>
+    </div><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+<h1>Assestment#assestment</h1>
+<p>Find me in app/views/assestment/assestment.html.erb</p>
+<%=@ed%>
+<%=@subjects%>
+<%=@level%>
+<%=@q%>
+<% @ed.each do |subject| %>
+  <%= subject.id %>aasdsd
+    <%= subject.subjcode %>
+    <% end %>
+ 

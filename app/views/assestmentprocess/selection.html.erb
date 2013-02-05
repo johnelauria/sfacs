@@ -1,0 +1,66 @@
+<div id="header" style="position:relative"><div id="nav" style="float:right; margin-top:10px; margin-right:10px">
+        <% if current_student %>
+        <%= link_to "Edit Profile", edit_student_path(current_student.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_teacher %>
+        <%= link_to "Edit Profile", edit_teacher_path(current_teacher.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_cashier %>
+        <%= link_to "Edit Profile", edit_cashier_path(current_cashier.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+        <% end %>
+        <% end %>
+               
+        <%= link_to "Register", new_user_path%> | 
+        <%= link_to "Login", :login %>
+        <% end %>
+    </div><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+<h1 style="color:black" align="center">Block Selection</h1>
+<p align="center">in this page you can select a block to assess</p>
+
+<%= form_tag("selection", :method =>"post") do %>
+<%= collection_select(:subject, :block, @blocks, :block, :block, options ={:prompt => "-Select a block"},:style=>"float:left") %>
+<%= submit_tag("GO",:class=>"button",:style=>"float:left;") %>
+<% end %><br><br>
+<table class="bordered">
+<tr><th>BLOCK:<%=@block.upcase%></th></tr>
+</table>
+<table class="bordered">
+
+  <tr>
+    <th>Subjcode</th>
+    <th>Description</th>
+    <th>Days</th>
+    <th>Time1</th>
+    <th>Time2</th>
+    <th>Room</th>    
+  </tr>
+
+<% @subjects.each do |subject| %>
+  <tr>
+
+  <td><%= subject.subjcode %></td>
+    <td><%= subject.description %></td>
+    <td><%= subject.days %></td>
+    <td><%= subject.time1 %></td>
+    <td><%= subject.time2 %></td>
+    <td><%= subject.room %></td>
+  
+  </tr>
+ 
+  <% end %>
+   </table>
+
+<%= form_tag("assestmentprocess/assestment", :method =>"post") do %>
+<%= hidden_field_tag(:q, @block)%>
+<%= submit_tag("ASSESTMENT", :class =>"button",:style=>"float:right") %>
+<% end %>
+
+
+

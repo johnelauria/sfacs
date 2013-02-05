@@ -1,0 +1,82 @@
+<div id="header" style="position:relative"><div id="nav" style="float:right; margin-top:10px; margin-right:10px">
+        <% if current_student %>
+        <%= link_to "Edit Profile", edit_student_path(current_student.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_teacher %>
+        <%= link_to "Edit Profile", edit_teacher_path(current_teacher.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+
+        <% if current_cashier %>
+        <%= link_to "Edit Profile", edit_cashier_path(current_cashier.id)%>
+        <%= link_to "Logout", :logout%>
+        <% else %>
+        <% end %>
+        <% end %>
+               
+        <%= link_to "Register", new_user_path%> | 
+        <%= link_to "Login", :login %>
+        <% end %>
+    </div><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1><br><br><br> &nbspPamplona Branch
+</div>
+<h1 align="center">Transactions</h1>
+<p align="center">in this page you can view all of your transactions</p>
+<h1><p id="notice"><%= notice %></p></h1>
+
+
+  <table class="bordered">
+
+   <% @transactions.each do |transaction| %> 
+  
+  <tr>
+    <th>Transaction id: </th><th ><%= transaction.id %></th>
+    <th>School Year: </th><th><%= transaction.sy %></th>
+
+    <th>Total Amount: </th><th><% @total=transaction.subjectamount+transaction.miscamount %><%=@total%></th>
+    <th>Paid Amount: </th> <th><%= transaction.paidamount %></th>
+    </tr><tr><td colspan="8" style="width: 100px;"></td></tr>    
+    <tr><th>Description: </th><th>Subject code: </th><th>Days: </th>
+    <th>Time1: </th><th>Time2: </th><th>Room: </th><th>Level: </th>
+    <th>Block: </th></tr>
+    <%@subjects=transaction.masterlists%>
+    <% @subjects.each do |subject|%>  
+    <tr>
+    <td ><%= subject.subject.description %></td>
+    <td><%= subject.subject.subjcode %></td>
+    <td><%= subject.subject.days %></td>
+    <td><%= subject.subject.time1 %></td>
+    <td><%= subject.subject.time2 %></td>
+    <td><%= subject.subject.room %></td>  
+    <td><%= subject.subject.level %></td>
+    <td><%= subject.subject.block %></td>
+    
+    </tr>
+    <%end%>
+    <%@payments=transaction.payments%>
+    <tr><th></th><th>Reciept id: </th><th>School Year: </th><th>Amount: </th><th colspan="2">Date: </th><th>Cashier id:</th><th></th> </tr><tr>
+    <% @payments.each do |payment|%>
+    <tr>
+    <td></td>
+    <td ><%= payment.id %></td>
+    <td><%= payment.sy %></td>
+    <td><%= payment.amount %></td>
+    <td colspan="2"><%= payment.created_at %></td>
+    <td><%= payment.cashier_id %></td>
+    <td></td>
+
+    
+    </tr>
+    <%end%>
+    <%end%>
+   </table>
+
+   
+
+<%= form_tag("profilegrades", :method =>"post") do %>
+<%= submit_tag("Step 2: View Enrolled Subjects", :class => "button",:style=>"float:right") %>
+<%= hidden_field_tag(:dugas, "gago")%>
+
+<input id="masterlist_sy" name="masterlist[sy]" type="hidden" value="1112"/>
+<% end %>

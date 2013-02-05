@@ -1,0 +1,36 @@
+
+<%= form_tag("gradingsystem", :method =>"post") do  %>
+  
+  <div class="field">
+    <%= label_tag( :quiz) %>
+    <%= text_field(:subject,:quiz,:size=>"2", :maxlimit=>"2" ) %>%
+  <div class="field">
+    <%= label_tag( :seatwork) %>
+    <%= text_field(:subject,:seatwork,:size=>"2", :maxlimit=>"2" ) %>%
+  </div>
+   <div class="field">
+    <%= label_tag( :exam) %>
+    <%= text_field(:subject,:exam,:size=>"2", :maxlimit=>"2" ) %>%
+  </div>
+   <div class="field">
+    <%= label_tag( :assignment) %>
+    <%= text_field(:subject,:assignment,:size=>"2", :maxlimit=>"2" ) %>%
+  </div>
+  <div class="field">
+    <%= label_tag( :project) %>
+    <%= text_field(:subject,:project,:size=>"2", :maxlimit=>"2" ) %>%
+  </div>
+  <div class="field">
+    <%= label_tag( :recitation) %>
+    <%= text_field(:subject,:recitation,:size=>"2", :maxlimit=>"2" ) %>%
+  </div>
+  <div class="field">
+    <%= label_tag( :attendance) %>
+    <%= text_field(:subject,:attendance,:size=>"2", :maxlimit=>"2" ) %>%
+  </div>
+  <%= hidden_field_tag(:dugas, @subject.id) %>
+  <%= hidden_field_tag(:duga, "y")%>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>

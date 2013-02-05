@@ -1,0 +1,25 @@
+<style>body{background:white;}</style>
+SUBJECTS HANDLED BY: <%=@teacher.fullname%>
+<table border="1" style="text-align:center; width:700px">
+  <tr>
+    
+    <th>subject code</th>
+    <th>Description</th>
+    <th>Block</th>
+    <th>Level</th>
+    
+   
+  </tr>
+
+<% @subjects.each do |subject| %>
+  <tr>
+
+    <td><%= subject.subjcode %></td>
+    <td><%= subject.description %></td>
+    <td><%= subject.block %></td>
+    <td><%= subject.level %></td>
+    
+    </tr>
+ 
+  <% end %>
+   </table>

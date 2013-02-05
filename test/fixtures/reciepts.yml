@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  transaction_id: 1
+  cashier_id: 1
+  payment_id: 1
+
+two:
+  transaction_id: 1
+  cashier_id: 1
+  payment_id: 1

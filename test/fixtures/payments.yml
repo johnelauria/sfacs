@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  transaction_id: MyString
+  amount: 1
+  sy: MyString
+
+two:
+  transaction_id: MyString
+  amount: 1
+  sy: MyString

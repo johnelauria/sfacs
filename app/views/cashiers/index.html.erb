@@ -1,0 +1,43 @@
+<div id="header" style="position:relative"><br><%= image_tag "sfac.png", :size=>"80x80",:style=>"margin-top:-10px;float:left"%><h1 style="margin-top:20px; float:left">Saint Francis Assisi College System</h1>
+</div>
+<h1>Listing cashiers</h1>
+<br/>
+<table class="bordered">
+  <tr>
+    <th>Username</th>
+    <th>fname</th>
+    <th>mname</th>
+    <th>lname</th>
+    <th>suffix</th>
+    <th>address</th>
+    <th>email</th>
+    <th>telnum</th>
+    <th>celnum</th>
+    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cashiers.each do |cashier| %>
+  <tr>
+    <td><%= cashier.username %></td>
+    <td><%= cashier.fname %></td>
+    <td><%= cashier.mname %></td>
+    <td><%= cashier.lname %></td>
+    <td><%= cashier.suffix %></td>
+    <td><%= cashier.address %></td>
+    <td><%= cashier.email %></td>
+    <td><%= cashier.telnum %></td>
+    <td><%= cashier.celnum %></td>
+    
+    <td><%= link_to 'Show', cashier %></td>
+    <td><%= link_to 'Edit', edit_cashier_path(cashier) %></td>
+    <td><%= link_to 'Destroy', cashier, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cashier', new_cashier_path %>
