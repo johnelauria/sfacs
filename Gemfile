@@ -4,8 +4,11 @@ gem 'rails', '3.1.0'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-	
-gem 'sqlite3'
+
+group :test, :development do	
+	gem 'sqlite3'
+end
+
 gem 'authlogic'
 gem 'jquery-rails', '>= 1.0.12'
 gem 'nifty-generators'  
@@ -17,6 +20,9 @@ group :assets do
   gem 'uglifier'
 end
 
+group :production do
+	gem 'pg'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
